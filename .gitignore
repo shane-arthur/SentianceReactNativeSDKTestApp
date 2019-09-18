@@ -59,4 +59,7 @@ buck-out/
 /ios/Pods/
 
 # Config
-src/config/app-config.ts
+/src/config/app-config.ts
+
+# package-lock.json
+package-lock.json
