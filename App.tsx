@@ -6,113 +6,77 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React, { Fragment, Component } from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
+  StyleSheet
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
 import AppConfigService from './src/services/app-config.service';
 
 AppConfigService.init();
 
-const App = () => {
-  return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes in ddd</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
-  );
-};
+export default class extends Component<any> {
+  state = {
+    isInitialized: false
+  }
+
+  componentDidMount() {
+    this.initSDK();
+  }
+
+  private async initSDK() {
+    const isInit = await this._checkSDKStatus();
+    if (!isInit) {
+      await this.initialize();
+    } else {
+      this.setState({
+        isInitialized: true
+      })
+    }
+    return true
+  }
+
+  private async _checkSDKStatus() {
+    return await AppConfigService.checkInitStatus();
+  }
+
+  private async initialize() {
+    const isInitialzed = await AppConfigService.init();
+    this.setState({
+      isInitialzed
+    })
+    return isInitialzed;
+  }
+
+  render() {
+
+    const isLoggedIn = (() => {
+      return this.state.isInitialized ?
+        <View style={styles.loggedInContainer}><Text> Initialized </Text></View> :
+        <View style={styles.loggedInContainer}><Text> There was an error Initializing </Text></View>
+    })();
+
+    return (
+      <Fragment>
+        <View style={styles.container}>
+          {isLoggedIn}
+        </View>
+      </Fragment>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
+    alignItems: "flex-start",
+    backgroundColor: "red",
+    padding: 16
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+  loggedInContainer: {
+    marginTop: 64
+  }
 });
-
-export default App;
