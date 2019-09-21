@@ -18,23 +18,27 @@ export default class extends Component<any> {
   state = {
     isInitialized: false,
     userId: undefined,
+    installId: undefined,
     sdkVersion: undefined,
     diskQuota: '',
     mobileQuota: '',
     wifiQuota: '',
-    tripType: undefined
+    tripType: undefined,
+    userAccessToken: undefined
   }
 
   sdkStatusUpdateSub: any = undefined;
   sdkUserActivitySub: any = undefined;
+  userLinkingSub: any = undefined;
 
   componentDidMount() {
     this.initSDK();
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.sdkStatusUpdateSub.remove();
     this.sdkUserActivitySub.remove();
+    this.userLinkingSub.remove();
   }
 
   private addEventListeners() {
@@ -49,7 +53,24 @@ export default class extends Component<any> {
       data => {
         const { type } = data;
         const tripType = UserActivityService.getTripType(type);
-        this.setState({tripType});
+        this.setState({ tripType });
+      }
+    );
+
+    this.userLinkingSub = reactNativeSentianceSdkEventEmitter.addListener(
+      "SDKUserLink",
+      id => {
+        const { installId } = id;
+        this.setState({
+          installId
+        })
+
+        //send this installid to you server for linking
+        // for now we'll comment this out, this listener is just here for testing purposes to make sure it fires
+        //linkUser(installId);
+
+        //once linking is done notify sdk
+        SDKDataService.sendUserLinkCallBack();
       }
     );
   }
@@ -81,7 +102,8 @@ export default class extends Component<any> {
   private async getDataUserData() {
     const userId = await SDKDataService.getUserId();
     const sdkVersion = await SDKDataService.getSdkVersion();
-    this.setState({ userId, sdkVersion });
+    const userAccessToken = await SDKDataService.getUserAccessToken();
+    this.setState({ userId, sdkVersion, userAccessToken });
   }
 
   private async getQuotas(sdkStatusData: any) {
@@ -125,35 +147,35 @@ export default class extends Component<any> {
     return (
       <Fragment>
         <View style={styles.container}>
-            <View style={styles.itemContainer}>
-              <Text> Status: </Text>
-              {isLoggedIn}
-            </View>
-            <View style={styles.itemContainer}>
-              <Text>User Id: </Text>
-              <Text>{userId}</Text>
-            </View>
-            <View style={styles.itemContainer}>
-              <Text>SDK Version: </Text>
-              <Text>{sdkVersion}</Text>
-            </View>
-            <View style={styles.itemContainer}>
-              <Text>Mobile Quota: </Text>
-              <Text>{mobileQuota}</Text>
-            </View>
-            <View style={styles.itemContainer}>
-              <Text>Disk Quota: </Text>
-              <Text>{diskQuota}</Text>
-            </View>
-            <View style={styles.itemContainer}>
-              <Text>Wifi Quota: </Text>
-              <Text>{wifiQuota}</Text>
-            </View>
-            <View style={styles.itemContainer}>
-              <Text>Trip Type: </Text>
-              <Text>{tripType}</Text>
-            </View>
+          <View style={styles.itemContainer}>
+            <Text> Status: </Text>
+            {isLoggedIn}
           </View>
+          <View style={styles.itemContainer}>
+            <Text>User Id: </Text>
+            <Text>{userId}</Text>
+          </View>
+          <View style={styles.itemContainer}>
+            <Text>SDK Version: </Text>
+            <Text>{sdkVersion}</Text>
+          </View>
+          <View style={styles.itemContainer}>
+            <Text>Mobile Quota: </Text>
+            <Text>{mobileQuota}</Text>
+          </View>
+          <View style={styles.itemContainer}>
+            <Text>Disk Quota: </Text>
+            <Text>{diskQuota}</Text>
+          </View>
+          <View style={styles.itemContainer}>
+            <Text>Wifi Quota: </Text>
+            <Text>{wifiQuota}</Text>
+          </View>
+          <View style={styles.itemContainer}>
+            <Text>Trip Type: </Text>
+            <Text>{tripType}</Text>
+          </View>
+        </View>
       </Fragment>
     );
   }
@@ -166,7 +188,7 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
     padding: 16,
     flexDirection: 'column',
-    
+
   },
   itemContainer: {
     marginTop: 64,

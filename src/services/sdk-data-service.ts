@@ -65,6 +65,27 @@ const SDKDataService = {
             console.log(`Error Retrieving SDK Version ${error}`);
             return 'error';
         }
+    },
+
+    sendUserLinkCallBack: async () => {
+        try {
+            RNSentiance.userLinkCallback(true)
+            return true;
+        }
+        catch (error) {
+            console.log(`Error performing userLinking callback ${error}`);
+            return false;
+        }
+    },
+
+    getUserAccessToken: async () => {
+        try{
+            const token = RNSentiance.getUserAccessToken();
+            return token;
+        } catch(error){
+            console.log(`Error Fetching Access Token ${error}`);
+            return null;
+        }
     }
 
 
