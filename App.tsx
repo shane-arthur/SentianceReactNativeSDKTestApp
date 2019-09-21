@@ -8,6 +8,9 @@ import {
 } from 'react-native';
 import reactNativeSentianceBridge from "react-native-sentiance";
 import AppConfigService from './src/services/app-config.service';
+import UserActivityService from './src/services/user-activity.service';
+import SDKDataService from './src/services/sdk-data-service';
+
 
 const reactNativeSentianceSdkEventEmitter = new NativeEventEmitter(reactNativeSentianceBridge);
 
@@ -18,7 +21,8 @@ export default class extends Component<any> {
     sdkVersion: undefined,
     diskQuota: '',
     mobileQuota: '',
-    wifiQuota: ''
+    wifiQuota: '',
+    tripType: undefined
   }
 
   sdkStatusUpdateSub: any = undefined;
@@ -26,18 +30,27 @@ export default class extends Component<any> {
 
   componentDidMount() {
     this.initSDK();
-    this.addEventListeners();
+  }
+
+  componentWillUnmount(){
+    this.sdkStatusUpdateSub.remove();
+    this.sdkUserActivitySub.remove();
   }
 
   private addEventListeners() {
+
     this.sdkStatusUpdateSub = reactNativeSentianceSdkEventEmitter.addListener(
       'SDKStatusUpdate',
-      console.log
+      this.getQuotas
     );
 
     this.sdkStatusUpdateSub = reactNativeSentianceSdkEventEmitter.addListener(
       'SDKUserActivityUpdate',
-      console.log
+      data => {
+        const { type } = data;
+        const tripType = UserActivityService.getTripType(type);
+        this.setState({tripType});
+      }
     );
   }
 
@@ -57,28 +70,25 @@ export default class extends Component<any> {
   private async start() {
     try {
       await this.getDataUserData();
-      const sdkStatusData = await reactNativeSentianceBridge.getSdkStatus();
+      const sdkStatusData = await SDKDataService.getSdkStatus();
       await this.getQuotas(sdkStatusData);
+      this.addEventListeners();
     } catch (error) {
       console.log(`Error fetching startup data ${error}`);
     }
   }
 
   private async getDataUserData() {
-    const userId = await reactNativeSentianceBridge.getUserId();
-    const sdkVersion = await reactNativeSentianceBridge.getVersion();
+    const userId = await SDKDataService.getUserId();
+    const sdkVersion = await SDKDataService.getSdkVersion();
     this.setState({ userId, sdkVersion });
   }
 
   private async getQuotas(sdkStatusData: any) {
-    const diskQuotaTotal = await reactNativeSentianceBridge.getDiskQuotaLimit();
-    const diskQuotaUsed = await reactNativeSentianceBridge.getDiskQuotaUsage();
-    const mobileQuotaTotal = await reactNativeSentianceBridge.getMobileQuotaLimit();
-    const mobileQuotaUsed = await reactNativeSentianceBridge.getMobileQuotaUsage();
-    const wifiQuotaTotal = await reactNativeSentianceBridge.getWiFiQuotaLimit();
-    const wifiQuotaUsed = await reactNativeSentianceBridge.getWiFiQuotaUsage();
+    const data = await SDKDataService.getQuotaData();
 
     const { wifiQuotaStatus, mobileQuotaStatus, diskQuotaStatus } = sdkStatusData;
+    const { wifiQuotaTotal, wifiQuotaUsed, mobileQuotaTotal, mobileQuotaUsed, diskQuotaTotal, diskQuotaUsed } = data;
 
     const wifiQuota = `${wifiQuotaStatus} : ${wifiQuotaUsed}/${wifiQuotaTotal} (kb)`
     const diskQuota = `${diskQuotaStatus} : ${diskQuotaUsed}/${diskQuotaTotal} (kb)`;
@@ -103,7 +113,7 @@ export default class extends Component<any> {
 
   render() {
 
-    const { userId, sdkVersion, mobileQuota, diskQuota, wifiQuota } = this.state;
+    const { userId, sdkVersion, mobileQuota, diskQuota, wifiQuota, tripType } = this.state;
 
 
     const isLoggedIn = (() => {
@@ -115,31 +125,35 @@ export default class extends Component<any> {
     return (
       <Fragment>
         <View style={styles.container}>
-          <View style={styles.itemContainer}>
-            <Text> Status: </Text>
-            {isLoggedIn}
+            <View style={styles.itemContainer}>
+              <Text> Status: </Text>
+              {isLoggedIn}
+            </View>
+            <View style={styles.itemContainer}>
+              <Text>User Id: </Text>
+              <Text>{userId}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <Text>SDK Version: </Text>
+              <Text>{sdkVersion}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <Text>Mobile Quota: </Text>
+              <Text>{mobileQuota}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <Text>Disk Quota: </Text>
+              <Text>{diskQuota}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <Text>Wifi Quota: </Text>
+              <Text>{wifiQuota}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <Text>Trip Type: </Text>
+              <Text>{tripType}</Text>
+            </View>
           </View>
-          <View style={styles.itemContainer}>
-            <Text>User Id: </Text>
-            <Text>{userId}</Text>
-          </View>
-          <View style={styles.itemContainer}>
-            <Text>SDK Version: </Text>
-            <Text>{sdkVersion}</Text>
-          </View>
-          <View style={styles.itemContainer}>
-            <Text>Mobile Quota: </Text>
-            <Text>{mobileQuota}</Text>
-          </View>
-          <View style={styles.itemContainer}>
-            <Text>Disk Quota: </Text>
-            <Text>{diskQuota}</Text>
-          </View>
-          <View style={styles.itemContainer}>
-            <Text>Wifi Quota: </Text>
-            <Text>{wifiQuota}</Text>
-          </View>
-        </View>
       </Fragment>
     );
   }
@@ -151,15 +165,8 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     backgroundColor: "red",
     padding: 16,
-    flexDirection: 'column'
-
-  },
-  infoContainer: {
-    flex: 1,
-    justifyContent: "flex-start",
-    backgroundColor: "red",
-    padding: 16,
-    flexDirection: 'row'
+    flexDirection: 'column',
+    
   },
   itemContainer: {
     marginTop: 64,
