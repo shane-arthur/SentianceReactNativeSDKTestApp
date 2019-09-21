@@ -21,6 +21,11 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+      <meta-data android:name="com.sentiance.react.bridge.notification_title" android:resource="@string/app_name"/>
+<meta-data android:name="com.sentiance.react.bridge.notification_text" android:value="Touch to open."/>
+<meta-data android:name="com.sentiance.react.bridge.notification_icon" android:resource="@mipmap/ic_launcher"/>
+<meta-data android:name="com.sentiance.react.bridge.notification_channel_name" android:value="Sentiance"/>
+<meta-data android:name="ccom.sentiance.react.bridge.notification_channel_id" android:value="sentiance"/>
     </application>
 
 </manifest>

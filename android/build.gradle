@@ -34,5 +34,10 @@ allprojects {
 
         google()
         jcenter()
+
+         maven {
+            // Sentiance SDK
+            url "http://repository.sentiance.com"
+        }
     }
 }

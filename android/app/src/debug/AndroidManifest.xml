@@ -4,5 +4,11 @@
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
-    <application android:usesCleartextTraffic="true" tools:targetApi="28" tools:ignore="GoogleAppIndexingWarning" />
+    <application 
+    android:usesCleartextTraffic="true" tools:targetApi="28" tools:ignore="GoogleAppIndexingWarning">
+    <meta-data android:name="com.sentiance.react.bridge.notification_text" android:value="Touch to open."/>
+<meta-data android:name="com.sentiance.react.bridge.notification_icon" android:resource="@mipmap/ic_launcher"/>
+<meta-data android:name="com.sentiance.react.bridge.notification_channel_name" android:value="Sentiance"/>
+<meta-data android:name="ccom.sentiance.react.bridge.notification_channel_id" android:value="sentiance"/>
+    </application>
 </manifest>
