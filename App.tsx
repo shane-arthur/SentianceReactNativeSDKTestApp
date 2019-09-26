@@ -84,11 +84,7 @@ export default class extends Component<any> {
         break;
       }
       case SDK_STATES.INIT_IN_PROGRESS: {
-        this.setState({
-          isInitialized: true
-        });
-        this.start();
-        break;
+        // need to know what to do here !!!
         
         break;
       }
