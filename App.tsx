@@ -10,6 +10,7 @@ import reactNativeSentianceBridge from "react-native-sentiance";
 import AppConfigService from './src/services/app-config.service';
 import UserActivityService from './src/services/user-activity.service';
 import SDKDataService from './src/services/sdk-data-service';
+import { SDK_STATES } from './src/constants/states'
 
 
 const reactNativeSentianceSdkEventEmitter = new NativeEventEmitter(reactNativeSentianceBridge);
@@ -76,15 +77,31 @@ export default class extends Component<any> {
   }
 
   private async initSDK() {
-    const isInit = await this._checkSDKStatus();
-    if (!isInit) {
-      await this.initialize();
-    } else {
-      this.setState({
-        isInitialized: true
-      });
-      this.start();
+    const initStatus = await this._checkSDKStatus();
+    switch (initStatus) {
+      case SDK_STATES.NOT_INITIALIZED: {
+        await this.initialize();
+        break;
+      }
+      case SDK_STATES.INIT_IN_PROGRESS: {
+        this.setState({
+          isInitialized: true
+        });
+        this.start();
+        break;
+        
+        break;
+      }
+      case SDK_STATES.INITIALIZED: {
+        this.setState({
+          isInitialized: true
+        });
+        this.start();
+        break;
+      }
+      default: break;
     }
+
     return true
   }
 

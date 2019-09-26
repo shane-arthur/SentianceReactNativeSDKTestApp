@@ -20,11 +20,12 @@ const AppConfigService = {
     checkInitStatus: async () => {
         try {
             const initialState = await RNSentiance.getInitState();
-            return initialState === SDK_STATES.INITIALIZED
+            return initialState;
         } catch (error){
             return false;
         }
     }
+
 
 }
 
