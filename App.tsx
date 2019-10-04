@@ -4,7 +4,9 @@ import {
   View,
   Text,
   StyleSheet,
-  NativeEventEmitter
+  NativeEventEmitter,
+  Button,
+  Alert
 } from 'react-native';
 import reactNativeSentianceBridge from "react-native-sentiance";
 import AppConfigService from './src/services/app-config.service';
@@ -80,12 +82,12 @@ export default class extends Component<any> {
     const initStatus = await this._checkSDKStatus();
     switch (initStatus) {
       case SDK_STATES.NOT_INITIALIZED: {
-        await this.initialize();
+        const isInitialized = await this.initialize();
+        this.setState({ isInitialized })
         break;
       }
       case SDK_STATES.INIT_IN_PROGRESS: {
         // need to know what to do here !!!
-        
         break;
       }
       case SDK_STATES.INITIALIZED: {
@@ -139,17 +141,18 @@ export default class extends Component<any> {
   }
 
   private async initialize() {
+
     const isInitialzed = await AppConfigService.init();
-    this.setState({
-      isInitialzed
-    })
+    if (isInitialzed) {
+      this.start();
+    }
     return isInitialzed;
   }
 
   render() {
 
     const { userId, sdkVersion, mobileQuota, diskQuota, wifiQuota, tripType } = this.state;
-
+    const disabled = this.state.isInitialized;
 
     const isLoggedIn = (() => {
       return this.state.isInitialized ?
@@ -160,6 +163,13 @@ export default class extends Component<any> {
     return (
       <Fragment>
         <View style={styles.container}>
+          <View style={styles.itemContainer}>
+            <Button
+              disabled={disabled}
+              title="Initialize"
+              onPress={() => this.initialize()}
+            />
+          </View>
           <View style={styles.itemContainer}>
             <Text> Status: </Text>
             {isLoggedIn}
