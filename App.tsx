@@ -6,7 +6,8 @@ import {
   StyleSheet,
   NativeEventEmitter,
   Button,
-  Alert
+  Alert,
+  ScrollView
 } from 'react-native';
 import reactNativeSentianceBridge from "react-native-sentiance";
 import AppConfigService from './src/services/app-config.service';
@@ -37,7 +38,6 @@ export default class extends Component<any> {
   componentDidMount() {
     this.initSDK();
   }
-
   componentWillUnmount() {
     this.sdkStatusUpdateSub.remove();
     this.sdkUserActivitySub.remove();
@@ -163,41 +163,36 @@ export default class extends Component<any> {
     return (
       <Fragment>
         <View style={styles.container}>
-          <View style={styles.itemContainer}>
-            <Button
-              disabled={disabled}
-              title="Initialize"
-              onPress={() => this.initialize()}
-            />
-          </View>
-          <View style={styles.itemContainer}>
-            <Text> Status: </Text>
-            {isLoggedIn}
-          </View>
-          <View style={styles.itemContainer}>
-            <Text>User Id: </Text>
-            <Text>{userId}</Text>
-          </View>
-          <View style={styles.itemContainer}>
-            <Text>SDK Version: </Text>
-            <Text>{sdkVersion}</Text>
-          </View>
-          <View style={styles.itemContainer}>
-            <Text>Mobile Quota: </Text>
-            <Text>{mobileQuota}</Text>
-          </View>
-          <View style={styles.itemContainer}>
-            <Text>Disk Quota: </Text>
-            <Text>{diskQuota}</Text>
-          </View>
-          <View style={styles.itemContainer}>
-            <Text>Wifi Quota: </Text>
-            <Text>{wifiQuota}</Text>
-          </View>
-          <View style={styles.itemContainer}>
-            <Text>Trip Type: </Text>
-            <Text>{tripType}</Text>
-          </View>
+          <ScrollView>
+            <View style={styles.itemContainer}>
+              <Text style={styles.textContainer}> Status: </Text>
+              <Text style={styles.textContainer}>{isLoggedIn}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <Text style={styles.textContainer}>User Id: </Text>
+              <Text style={styles.textContainer}>{userId}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <Text style={styles.textContainer}>SDK Version: </Text>
+              <Text style={styles.textContainer}>{sdkVersion}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <Text style={styles.textContainer}>Mobile Quota: </Text>
+              <Text style={styles.textContainer}>{mobileQuota}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <Text style={styles.textContainer}>Disk Quota: </Text>
+              <Text style={styles.textContainer}>{diskQuota}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <Text style={styles.textContainer}>Wifi Quota: </Text>
+              <Text style={styles.textContainer}>{wifiQuota}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+              <Text style={styles.textContainer}>Trip Type: </Text>
+              <Text style={styles.textContainer}>{tripType}</Text>
+            </View>
+          </ScrollView>
         </View>
       </Fragment>
     );
@@ -216,6 +211,9 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginTop: 64,
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+  },
+  textContainer: {
+    fontSize: 18
   }
 });
