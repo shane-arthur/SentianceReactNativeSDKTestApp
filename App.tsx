@@ -5,16 +5,15 @@ import {
   Text,
   StyleSheet,
   NativeEventEmitter,
-  Button,
-  Alert,
-  ScrollView
+  Platform,
+  ScrollView,
+  PermissionsAndroid
 } from 'react-native';
 import reactNativeSentianceBridge from "react-native-sentiance";
 import AppConfigService from './src/services/app-config.service';
 import UserActivityService from './src/services/user-activity.service';
 import SDKDataService from './src/services/sdk-data-service';
 import { SDK_STATES } from './src/constants/states'
-
 
 const reactNativeSentianceSdkEventEmitter = new NativeEventEmitter(reactNativeSentianceBridge);
 
@@ -36,7 +35,11 @@ export default class extends Component<any> {
   userLinkingSub: any = undefined;
 
   componentDidMount() {
-    this.initSDK();
+    if (Platform.OS === "android") {
+      this.requestPermissionAndroid();
+    } else {
+      this.initSDK();
+    }
   }
   componentWillUnmount() {
     this.sdkStatusUpdateSub.remove();
@@ -147,6 +150,15 @@ export default class extends Component<any> {
       this.start();
     }
     return isInitialzed;
+  }
+
+  async requestPermissionAndroid() {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      this.initSDK();
+    }
   }
 
   render() {
