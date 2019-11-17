@@ -1,0 +1,148 @@
+2019-10-03 23:27:40 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7ff8e6978cb0; archive(resolved)='<IDEArchive: 0x7ff8d10cb900>', distributionTask(resolved)='2', distributionDestination(resolved)='1', distributionMethod(resolved)='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team(resolved)='<IDEProvisioningDisambiguatableBasicTeam: 0x7ff90b5a8e80; teamID='BQC44BW32K', teamName='Shane Arthur', teamType='Individual', username='shane.arthur12@icloud.com', isFreeProvisioningTeam='0'>'>
+	Chain (12, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7ff8e6978cb0; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7ff90b5a8e80; teamID='BQC44BW32K', teamName='Shane Arthur', teamType='Individual', username='shane.arthur12@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionProcessingPipelineContext: 0x7ff8e69b9110; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7ff90b5a8e80; teamID='BQC44BW32K', teamName='Shane Arthur', teamType='Individual', username='shane.arthur12@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7ff90b57f220; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7ff90b5a8e80; teamID='BQC44BW32K', teamName='Shane Arthur', teamType='Individual', username='shane.arthur12@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7ff8e6962550; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7ff90b5a8e80; teamID='BQC44BW32K', teamName='Shane Arthur', teamType='Individual', username='shane.arthur12@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7ff8e60bc430; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7ff90b5a8e80; teamID='BQC44BW32K', teamName='Shane Arthur', teamType='Individual', username='shane.arthur12@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7ff86303ccf0; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7ff90b5a8e80; teamID='BQC44BW32K', teamName='Shane Arthur', teamType='Individual', username='shane.arthur12@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7ff87c680440; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7ff90b5a8e80; teamID='BQC44BW32K', teamName='Shane Arthur', teamType='Individual', username='shane.arthur12@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7ff87c69c9a0; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7ff90b5a8e80; teamID='BQC44BW32K', teamName='Shane Arthur', teamType='Individual', username='shane.arthur12@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7ff866d44a70; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7ff90b5a8e80; teamID='BQC44BW32K', teamName='Shane Arthur', teamType='Individual', username='shane.arthur12@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7ff866d53a90; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team='(null)'>
+	<IDEDistributionContext: 0x7ff910a4d5f0; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7ff8e5fa2c80>', team='(null)'>
+	<IDEDistributionContext: 0x7ff8674d6790; archive = '<IDEArchive: 0x7ff8d10cb900>', distributionMethod='(null)', team='(null)'>
+</IDEDistributionProcessingPipelineContext: 0x7ff8e6978cb0>
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionCreateDestRootStep
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionCopyItemStep
+2019-10-03 23:27:40 +0000  Running /usr/bin/ditto '-V' '/Users/sja0711/Library/Developer/Xcode/Archives/2019-10-03/SentianceReactNativeSDKTestApp 2019-10-03, 7.18 PM.xcarchive/Products/Applications/SentianceReactNativeSDKTestApp2.app' '/var/folders/9h/8m9snwm52079h67tvd_ngb6m0000gn/T/XcodeDistPipeline.~~~Qvm4xJ/Root/Payload/SentianceReactNativeSDKTestApp2.app'
+2019-10-03 23:27:40 +0000  >>> Copying /Users/sja0711/Library/Developer/Xcode/Archives/2019-10-03/SentianceReactNativeSDKTestApp 2019-10-03, 7.18 PM.xcarchive/Products/Applications/SentianceReactNativeSDKTestApp2.app 
+2019-10-03 23:27:40 +0000  copying file ./_CodeSignature/CodeResources ... 
+2019-10-03 23:27:40 +0000  4893 bytes for ./_CodeSignature/CodeResources
+2019-10-03 23:27:40 +0000  copying file ./SentianceReactNativeSDKTestApp2 ... 
+2019-10-03 23:27:40 +0000  37225504 bytes for ./SentianceReactNativeSDKTestApp2
+2019-10-03 23:27:40 +0000  copying file ./Base.lproj/LaunchScreen.nib/objects-13.0+.nib ... 
+3182 bytes for ./Base.lproj/LaunchScreen.nib/objects-13.0+.nib
+copying file ./Base.lproj/LaunchScreen.nib/runtime.nib ... 
+2019-10-03 23:27:40 +0000  3180 bytes for ./Base.lproj/LaunchScreen.nib/runtime.nib
+2019-10-03 23:27:40 +0000  copying file ./SENTSDK.bundle/SENTModel.momd/SENTModel 3.omo ... 
+2019-10-03 23:27:40 +0000  6288 bytes for ./SENTSDK.bundle/SENTModel.momd/SENTModel 3.omo
+2019-10-03 23:27:40 +0000  copying file ./SENTSDK.bundle/SENTModel.momd/SENTModel.mom ... 
+2019-10-03 23:27:40 +0000  2778 bytes for ./SENTSDK.bundle/SENTModel.momd/SENTModel.mom
+2019-10-03 23:27:40 +0000  copying file ./SENTSDK.bundle/SENTModel.momd/VersionInfo.plist ... 
+2019-10-03 23:27:40 +0000  615 bytes for ./SENTSDK.bundle/SENTModel.momd/VersionInfo.plist
+2019-10-03 23:27:40 +0000  copying file ./SENTSDK.bundle/SENTModel.momd/SENTModel 2.mom ... 
+2019-10-03 23:27:40 +0000  3071 bytes for ./SENTSDK.bundle/SENTModel.momd/SENTModel 2.mom
+2019-10-03 23:27:40 +0000  copying file ./SENTSDK.bundle/SENTModel.momd/SENTModel 3.mom ... 
+2019-10-03 23:27:40 +0000  3172 bytes for ./SENTSDK.bundle/SENTModel.momd/SENTModel 3.mom
+2019-10-03 23:27:40 +0000  copying file ./SENTSDK.bundle/Info.plist ... 
+2019-10-03 23:27:40 +0000  713 bytes for ./SENTSDK.bundle/Info.plist
+2019-10-03 23:27:40 +0000  copying file ./main.jsbundle ... 
+2019-10-03 23:27:40 +0000  3180485 bytes for ./main.jsbundle
+2019-10-03 23:27:40 +0000  copying file ./ip.txt ... 
+13 bytes for ./ip.txt
+copying file ./embedded.mobileprovision ... 
+2019-10-03 23:27:40 +0000  7477 bytes for ./embedded.mobileprovision
+2019-10-03 23:27:40 +0000  copying file ./assets/app.json ... 
+2019-10-03 23:27:40 +0000  97 bytes for ./assets/app.json
+2019-10-03 23:27:40 +0000  copying file ./Info.plist ... 
+2019-10-03 23:27:40 +0000  1509 bytes for ./Info.plist
+2019-10-03 23:27:40 +0000  copying file ./PkgInfo ... 
+2019-10-03 23:27:40 +0000  8 bytes for ./PkgInfo
+2019-10-03 23:27:40 +0000  /usr/bin/ditto exited with 0
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionEmbedProfileStep
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionItemRemovalStep
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2019-10-03 23:27:40 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2019-10-03 23:27:40 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2019-10-03 23:27:40 +0000  Running /usr/bin/ditto '-V' '/Users/sja0711/Library/Developer/Xcode/Archives/2019-10-03/SentianceReactNativeSDKTestApp 2019-10-03, 7.18 PM.xcarchive/BCSymbolMaps/DBD70D3E-AB38-36F1-8D55-0CC07A898102.bcsymbolmap' '/var/folders/9h/8m9snwm52079h67tvd_ngb6m0000gn/T/XcodeDistPipeline.~~~Qvm4xJ/Root/BCSymbolMaps/DBD70D3E-AB38-36F1-8D55-0CC07A898102.bcsymbolmap'
+2019-10-03 23:27:40 +0000  >>> Copying /Users/sja0711/Library/Developer/Xcode/Archives/2019-10-03/SentianceReactNativeSDKTestApp 2019-10-03, 7.18 PM.xcarchive/BCSymbolMaps/DBD70D3E-AB38-36F1-8D55-0CC07A898102.bcsymbolmap 
+2019-10-03 23:27:40 +0000  copying file ./DBD70D3E-AB38-36F1-8D55-0CC07A898102.bcsymbolmap ... 
+2019-10-03 23:27:40 +0000  3346477 bytes for ./DBD70D3E-AB38-36F1-8D55-0CC07A898102.bcsymbolmap
+2019-10-03 23:27:40 +0000  /usr/bin/ditto exited with 0
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionSymbolsStep
+2019-10-03 23:27:40 +0000  Excluding symbols for SentianceReactNativeSDKTestApp2.app
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionCopyAppleProvidedContentStep
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionAppThinningStep
+2019-10-03 23:27:40 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionArchThinningStep
+2019-10-03 23:27:40 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/9h/8m9snwm52079h67tvd_ngb6m0000gn/T/XcodeDistPipeline.~~~Qvm4xJ/Root/Payload/SentianceReactNativeSDKTestApp2.app/SentianceReactNativeSDKTestApp2' '-verify_arch' 'arm64e'
+2019-10-03 23:27:40 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2019-10-03 23:27:40 +0000  Skipping architecture thinning for item "SentianceReactNativeSDKTestApp2" because arch "arm64e" wasn't found
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionODRStep
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionStripXattrsStep
+2019-10-03 23:27:40 +0000  Running /usr/bin/xattr '-crs' '/var/folders/9h/8m9snwm52079h67tvd_ngb6m0000gn/T/XcodeDistPipeline.~~~Qvm4xJ/Root/Payload/SentianceReactNativeSDKTestApp2.app'
+2019-10-03 23:27:40 +0000  /usr/bin/xattr exited with 0
+2019-10-03 23:27:40 +0000  Processing step: IDEDistributionCodesignStep
+2019-10-03 23:27:40 +0000  Entitlements for <IDEDistributionItem: 0x7ff8674a6c40; bundleID='org.reactjs.native.example.SentianceReactNativeSDKTestApp2', path='<DVTFilePath:0x7ff87c6b91e0:'/Users/sja0711/Library/Developer/Xcode/Archives/2019-10-03/SentianceReactNativeSDKTestApp 2019-10-03, 7.18 PM.xcarchive/Products/Applications/SentianceReactNativeSDKTestApp2.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7ff899c18600; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7ff8bcaace70; name='Apple Development: Shane Arthur (DU39QSUBV7)', hash='18496F878BED4F34DB26CC9F307167254E2E579F', serialNumber='41BA6820A5B54F6B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-09-25 23:56:12 +0000''>', entitlements='{
+    "application-identifier" = "BQC44BW32K.org.reactjs.native.example.SentianceReactNativeSDKTestApp2";
+    "com.apple.developer.team-identifier" = BQC44BW32K;
+    "get-task-allow" = 1;
+}', teamID='BQC44BW32K', identifier='org.reactjs.native.example.SentianceReactNativeSDKTestApp2', executablePath='<DVTFilePath:0x7ff899c07cc0:'/Users/sja0711/Library/Developer/Xcode/Archives/2019-10-03/SentianceReactNativeSDKTestApp 2019-10-03, 7.18 PM.xcarchive/Products/Applications/SentianceReactNativeSDKTestApp2.app/SentianceReactNativeSDKTestApp2'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "BQC44BW32K.org.reactjs.native.example.SentianceReactNativeSDKTestApp2";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = BQC44BW32K;
+    "get-task-allow" = 0;
+}
+2019-10-03 23:27:40 +0000  Writing entitlements for <IDEDistributionItem: 0x7ff8674a6c40; bundleID='org.reactjs.native.example.SentianceReactNativeSDKTestApp2', path='<DVTFilePath:0x7ff87c6b91e0:'/Users/sja0711/Library/Developer/Xcode/Archives/2019-10-03/SentianceReactNativeSDKTestApp 2019-10-03, 7.18 PM.xcarchive/Products/Applications/SentianceReactNativeSDKTestApp2.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7ff899c18600; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7ff866d6c5e0; name='Apple Development: Shane Arthur (DU39QSUBV7)', hash='18496F878BED4F34DB26CC9F307167254E2E579F', serialNumber='41BA6820A5B54F6B', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-09-25 23:56:12 +0000''>', entitlements='{
+    "application-identifier" = "BQC44BW32K.org.reactjs.native.example.SentianceReactNativeSDKTestApp2";
+    "com.apple.developer.team-identifier" = BQC44BW32K;
+    "get-task-allow" = 1;
+}', teamID='BQC44BW32K', identifier='org.reactjs.native.example.SentianceReactNativeSDKTestApp2', executablePath='<DVTFilePath:0x7ff899c07cc0:'/Users/sja0711/Library/Developer/Xcode/Archives/2019-10-03/SentianceReactNativeSDKTestApp 2019-10-03, 7.18 PM.xcarchive/Products/Applications/SentianceReactNativeSDKTestApp2.app/SentianceReactNativeSDKTestApp2'>', hardenedRuntime='0'>'> to: /var/folders/9h/8m9snwm52079h67tvd_ngb6m0000gn/T/XcodeDistPipeline.~~~Qvm4xJ/entitlements~~~BfMBjL
+2019-10-03 23:27:40 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '4E78449BC8FDAD6AE9EB5C3B8D83BB3C762DF07E' '--entitlements' '/var/folders/9h/8m9snwm52079h67tvd_ngb6m0000gn/T/XcodeDistPipeline.~~~Qvm4xJ/entitlements~~~BfMBjL' '--preserve-metadata=identifier,flags,runtime' '/var/folders/9h/8m9snwm52079h67tvd_ngb6m0000gn/T/XcodeDistPipeline.~~~Qvm4xJ/Root/Payload/SentianceReactNativeSDKTestApp2.app'
+2019-10-03 23:27:41 +0000  /var/folders/9h/8m9snwm52079h67tvd_ngb6m0000gn/T/XcodeDistPipeline.~~~Qvm4xJ/Root/Payload/SentianceReactNativeSDKTestApp2.app: signed app bundle with Mach-O thin (arm64) [org.reactjs.native.example.SentianceReactNativeSDKTestApp2]
+2019-10-03 23:27:41 +0000  /usr/bin/codesign exited with 0
+2019-10-03 23:27:41 +0000  Processing step: IDEDistributionZipODRItemStep
+2019-10-03 23:27:41 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2019-10-03 23:27:41 +0000  Processing step: IDEDistributionCreateIPAStep
+2019-10-03 23:27:41 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/9h/8m9snwm52079h67tvd_ngb6m0000gn/T/XcodeDistPipeline.~~~Qvm4xJ/Root' '/var/folders/9h/8m9snwm52079h67tvd_ngb6m0000gn/T/XcodeDistPipeline.~~~Qvm4xJ/Packages/SentianceReactNativeSDKTestApp.ipa'
+2019-10-03 23:27:41 +0000  >>> Copying /var/folders/9h/8m9snwm52079h67tvd_ngb6m0000gn/T/XcodeDistPipeline.~~~Qvm4xJ/Root 
+2019-10-03 23:27:41 +0000  copying file ./BCSymbolMaps/DBD70D3E-AB38-36F1-8D55-0CC07A898102.bcsymbolmap ... 
+2019-10-03 23:27:41 +0000  3346477 bytes for ./BCSymbolMaps/DBD70D3E-AB38-36F1-8D55-0CC07A898102.bcsymbolmap
+2019-10-03 23:27:41 +0000  copying file ./Payload/SentianceReactNativeSDKTestApp2.app/_CodeSignature/CodeResources ... 
+2019-10-03 23:27:41 +0000  4893 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/_CodeSignature/CodeResources
+copying file ./Payload/SentianceReactNativeSDKTestApp2.app/SentianceReactNativeSDKTestApp2 ... 
+2019-10-03 23:27:42 +0000  29893040 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/SentianceReactNativeSDKTestApp2
+2019-10-03 23:27:42 +0000  copying file ./Payload/SentianceReactNativeSDKTestApp2.app/Base.lproj/LaunchScreen.nib/objects-13.0+.nib ... 
+3182 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/Base.lproj/LaunchScreen.nib/objects-13.0+.nib
+copying file ./Payload/SentianceReactNativeSDKTestApp2.app/Base.lproj/LaunchScreen.nib/runtime.nib ... 
+2019-10-03 23:27:42 +0000  3180 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/Base.lproj/LaunchScreen.nib/runtime.nib
+2019-10-03 23:27:42 +0000  copying file ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/SENTModel.momd/SENTModel 3.omo ... 
+2019-10-03 23:27:42 +0000  6288 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/SENTModel.momd/SENTModel 3.omo
+2019-10-03 23:27:42 +0000  copying file ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/SENTModel.momd/SENTModel.mom ... 
+2019-10-03 23:27:42 +0000  2778 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/SENTModel.momd/SENTModel.mom
+copying file ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/SENTModel.momd/VersionInfo.plist ... 
+2019-10-03 23:27:42 +0000  615 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/SENTModel.momd/VersionInfo.plist
+copying file ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/SENTModel.momd/SENTModel 2.mom ... 
+2019-10-03 23:27:42 +0000  3071 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/SENTModel.momd/SENTModel 2.mom
+copying file ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/SENTModel.momd/SENTModel 3.mom ... 
+2019-10-03 23:27:42 +0000  3172 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/SENTModel.momd/SENTModel 3.mom
+2019-10-03 23:27:42 +0000  copying file ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/Info.plist ... 
+2019-10-03 23:27:42 +0000  713 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/SENTSDK.bundle/Info.plist
+copying file ./Payload/SentianceReactNativeSDKTestApp2.app/main.jsbundle ... 
+2019-10-03 23:27:42 +0000  3180485 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/main.jsbundle
+2019-10-03 23:27:42 +0000  copying file ./Payload/SentianceReactNativeSDKTestApp2.app/ip.txt ... 
+13 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/ip.txt
+copying file ./Payload/SentianceReactNativeSDKTestApp2.app/embedded.mobileprovision ... 
+9357 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/embedded.mobileprovision
+2019-10-03 23:27:42 +0000  copying file ./Payload/SentianceReactNativeSDKTestApp2.app/assets/app.json ... 
+97 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/assets/app.json
+2019-10-03 23:27:42 +0000  copying file ./Payload/SentianceReactNativeSDKTestApp2.app/Info.plist ... 
+1509 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/Info.plist
+copying file ./Payload/SentianceReactNativeSDKTestApp2.app/PkgInfo ... 
+2019-10-03 23:27:42 +0000  8 bytes for ./Payload/SentianceReactNativeSDKTestApp2.app/PkgInfo
+2019-10-03 23:27:42 +0000  /usr/bin/ditto exited with 0
+2019-10-03 23:27:42 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2019-10-03 23:27:42 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2019-10-03 23:27:42 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2019-10-03 23:27:42 +0000  Processing step: IDEDistributionCreateManifestStep
+2019-10-03 23:27:42 +0000  Skipping step: IDEDistributionCreateManifestStep because it said so
