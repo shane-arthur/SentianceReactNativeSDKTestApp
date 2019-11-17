@@ -6,7 +6,9 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "build:android:debug" : "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res"
+    "build:android:debug" : "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "package:android:debug": "cd android/ && ./gradlew assembleDebug",
+    "build:debug" : "npm run build:android:debug && npm run package:android:debug"
   },
   "dependencies": {
     "react": "16.8.6",

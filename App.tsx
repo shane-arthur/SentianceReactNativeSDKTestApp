@@ -90,7 +90,7 @@ export default class extends Component<any> {
         break;
       }
       case SDK_STATES.INIT_IN_PROGRESS: {
-        // need to know what to do here !!!
+        setTimeout(() => this.initSDK(), 2500);
         break;
       }
       case SDK_STATES.INITIALIZED: {
