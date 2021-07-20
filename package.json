@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-native": "0.60.5",
+    "react-native": "0.62.3",
     "react-native-sentiance": "^3.0.4"
   },
   "devDependencies": {
